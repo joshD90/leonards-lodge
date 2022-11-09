@@ -1,7 +1,11 @@
-import Banner from "./components/banner/Banner";
+import ParallaxContainer from "./components/parallaxContainer/ParallaxContainer";
 
 function App() {
-  return <Banner />;
+  return (
+    <>
+      <ParallaxContainer />
+    </>
+  );
 }
 
 export default App;
