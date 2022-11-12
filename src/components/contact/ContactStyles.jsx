@@ -8,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 90px;
+  margin-top: ${(props) => props.marginTop};
   flex-wrap: wrap;
 `;
 

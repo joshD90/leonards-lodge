@@ -10,4 +10,7 @@ export const Container = styled.div`
   /* background-color: ${colors.highlight}; */
   background-color: #ebf7c8;
   height: 80vh;
+  @media (max-width: 1024px) {
+    height: auto;
+  }
 `;

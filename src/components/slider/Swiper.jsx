@@ -26,10 +26,13 @@ export default () => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log("slide change")}
       loop={true}
-      style={{ height: "70%", width: "80vw" }}
+      style={{
+        height: "inherit",
+        width: "inherit",
+        margin: "inherit",
+        padding: "inherit",
+      }}
     >
       {images.map((image) => {
         return (

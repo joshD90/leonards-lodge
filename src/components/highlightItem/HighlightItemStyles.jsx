@@ -11,9 +11,16 @@ export const Container = styled.div`
   transform: rotate(${(props) => props.rotated});
   transition: transform 1s ease;
   box-shadow: 3px 3px 8px 2px ${colors.dark};
+  margin-bottom: 50px;
   &:hover {
     transform: rotate(0deg) scale(1.1);
     z-index: 1;
+  }
+  @media (max-width: 1024px) {
+    width: 45%;
+  }
+  @media (max-width: 480px) {
+    width: 90%;
   }
 `;
 
