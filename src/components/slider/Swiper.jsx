@@ -17,6 +17,7 @@ import "swiper/css/scrollbar";
 
 export default () => {
   const images = [bathroom1, bathroom2, bedroom3, kitchen2, sittingRoom2, lane];
+
   return (
     <Swiper
       // install Swiper modules
@@ -34,9 +35,9 @@ export default () => {
         padding: "inherit",
       }}
     >
-      {images.map((image) => {
+      {images.map((image, index) => {
         return (
-          <SwiperSlide>
+          <SwiperSlide key={index}>
             <img
               src={image}
               style={{ width: "100%", height: "100%", objectFit: "cover" }}

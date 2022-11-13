@@ -10,6 +10,12 @@ export const Container = styled.div`
   justify-content: center;
   margin-top: ${(props) => props.marginTop};
   flex-wrap: wrap;
+  @media (max-width: 850px) {
+  }
+  @media (max-width: 480px) {
+    height: auto;
+    padding: 5px;
+  }
 `;
 
 export const Header = styled.span`
@@ -17,6 +23,12 @@ export const Header = styled.span`
   color: ${colors.highlight};
   width: 100%;
   text-align: center;
+  @media (max-width: 850px) {
+  }
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+    margin: 5px 0%;
+  }
 `;
 
 export const Button = styled.button`
@@ -29,5 +41,11 @@ export const Button = styled.button`
   &:hover {
     background-color: ${colors.dark};
     color: ${colors.highlight};
+  }
+  @media (max-width: 850px) {
+  }
+  @media (max-width: 480px) {
+    font-size: 1.7rem;
+    padding: 5px;
   }
 `;

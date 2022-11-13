@@ -8,8 +8,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (min-height: 1024px) {
-    height: 60vh;
+  @media (max-aspect-ratio: 9/12) {
+    height: 70vh;
   }
   @media (max-width: 480px) {
     height: 60vh;

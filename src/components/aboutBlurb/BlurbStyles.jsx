@@ -6,13 +6,12 @@ export const Container = styled.div`
   background-color: ${colors.highlight};
   width: 100vw;
   position: relative;
+
   @media (max-aspect-ratio: 12/16) {
     height: 100vh;
-    background-color: blue;
   }
-  @media (min-aspect-ratio: 20/12) {
-    background-color: red;
-    height: 160vh;
+  @media (min-aspect-ratio: 16/12) {
+    height: 200vh;
   }
 `;
 
@@ -26,6 +25,10 @@ export const Photo = styled.img`
   border: 5px solid white;
   box-shadow: 3px 3px 5px 2px;
   transform: rotate(-3deg) translate(-50%, 0);
+  @media (max-width: 480px) {
+    top: 10vh;
+    width: 90vw;
+  }
 `;
 
 export const TextDiv = styled.div`
@@ -61,7 +64,16 @@ export const IntersectionLine = styled.div`
   background-color: black;
   position: absolute;
   bottom: 1px;
+  background: none;
+  @media (max-width: 480px) {
+    height: 10vh;
+  }
+  @media (min-aspect-ratio: 9/12) {
+    height: 30vh;
+    background: none;
+  }
   @media (min-aspect-ratio: 18/12) {
-    bottom: 30vh;
+    height: 50vh;
+    background: none;
   }
 `;

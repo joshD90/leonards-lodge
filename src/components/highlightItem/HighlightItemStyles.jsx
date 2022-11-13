@@ -27,6 +27,9 @@ export const Container = styled.div`
 export const Photo = styled.img`
   width: 90%;
   margin: 5px 5% 5px;
+  @media (max-width: 480px) {
+    margin-bottom: 0px;
+  }
 `;
 
 export const Text = styled.p`
@@ -36,6 +39,10 @@ export const Text = styled.p`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 480px) {
+    margin: 10px;
+    font-size: 1.6rem;
+  }
 `;
 
 export const SubText = styled.p`
@@ -43,4 +50,7 @@ export const SubText = styled.p`
   font-weight: 500;
   width: 90%;
   margin-top: -5px;
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
