@@ -1,0 +1,10 @@
+1) add in branches and tree overlay
+- this may involve grabbing the y position and height of more elements
+2) make branches and trees responsive
+3) pick out font across page
+4) pick out font for testimonials
+5) add in navbar
+6) add in footer
+7) add in overlay rocks at bottom above second contact
+8) change feedback texts
+8) upload to server + get feedback

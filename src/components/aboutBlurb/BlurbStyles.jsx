@@ -8,10 +8,13 @@ export const Container = styled.div`
   position: relative;
 
   @media (max-aspect-ratio: 12/16) {
-    height: 100vh;
+    height: 110vh;
   }
   @media (min-aspect-ratio: 16/12) {
     height: 200vh;
+  }
+  @media (aspect-ratio: 768/1024) {
+    height: 130vh;
   }
 `;
 
@@ -40,6 +43,7 @@ export const TextDiv = styled.div`
   justify-content: center;
   padding-bottom: 40px;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+
   @media (max-aspect-ratio: 12/16) {
     top: 24vh;
   }
@@ -52,6 +56,10 @@ export const Text = styled.p`
   width: 70vw;
   max-width: 700px;
   text-align: center;
+  @media (max-width: 850px) {
+    font-size: 1.4rem;
+    line-height: 1.2rem;
+  }
   @media (max-width: 480px) {
     font-size: 1.2rem;
     line-height: 1rem;
@@ -65,6 +73,7 @@ export const IntersectionLine = styled.div`
   position: absolute;
   bottom: 1px;
   background: none;
+
   @media (max-width: 480px) {
     height: 10vh;
   }

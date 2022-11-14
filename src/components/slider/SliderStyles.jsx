@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   @media (max-aspect-ratio: 9/12) {
     height: 70vh;
   }
@@ -21,6 +22,9 @@ export const Wrapper = styled.div`
   height: 70%;
   padding: 0;
   margin: 0;
+  @media (min-aspect-ratio: 14/9) {
+    height: 90%;
+  }
   @media (max-width: 1024px) {
     width: 100vw;
     height: 90%;

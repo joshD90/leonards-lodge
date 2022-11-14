@@ -38,7 +38,7 @@ export const Grass = styled.img`
   transform-style: preserve-3d;
   transform: translateZ(-2px) scale(1.2);
   @media (min-aspect-ratio: 16/9) {
-    height: 20vh;
+    height: 25vh;
     top: 95vh;
   }
   @media (max-width: 850px) {
@@ -61,6 +61,8 @@ export const ViewHeightDiv = styled.div`
   flex-wrap: wrap;
   background: none;
   z-index: -2;
+  position: static;
+  transform: translateY(-60px);
   @media (max-width: 850px) {
     height: 60vh;
   }
@@ -109,46 +111,54 @@ export const LodgeLogo = styled.h2`
 
 export const PlantOverlay = styled.img`
   position: absolute;
-  top: ${(props) => props.top + "px"};
-  left: ${(props) => props.left && 0 - props.horizontalAdjust + "px"};
-  right: ${(props) => props.right && 0 - props.horizontalAdjust + "px"};
-  width: ${(props) => props.width + "px"};
+  top: ${(props) => props.top};
+  left: ${(props) => props.left && "-30vw"};
+  right: ${(props) => props.right && "-30vw"};
+  width: 60vw;
   object-fit: cover;
   z-index: 5;
   transform: translateZ(2px) scale(0.9);
+  @media (max-width: 480px) {
+    width: 80vw;
+    left: ${(props) => props.left && "-50vw"};
+    right: ${(props) => props.right && "-50vw"};
+  }
+`;
+export const LeafOverlay = styled.img`
+  position: absolute;
+  top: ${(props) => props.top};
+  left: ${(props) => props.left && "-5vw"};
+  right: ${(props) => props.right && "-5vw"};
+  width: 30vw;
+  object-fit: cover;
+  z-index: 5;
+  transform: ${(props) =>
+    props.right
+      ? "translateZ(2px) scale(0.9) rotate(180deg)"
+      : "translateZ(2px) scale(0.9)"};
+
+  @media (max-width: 480px) {
+    width: 40vw;
+    left: ${(props) => props.left && "-10vw"};
+    right: ${(props) => props.right && "-10vw"};
+  }
 `;
 
-export const TreeImg = styled.img`
+export const RockSpace = styled.div`
+  height: 20vh;
+  width: 100%;
+  background-color: ${colors.extraLight};
+`;
+
+export const Rocks = styled.img`
   position: absolute;
-  top: 150vh;
-  left: -400px;
-  width: 700px;
-  object-fit: cover;
+  width: 100vw;
+  object-fit: stretch;
+  top: ${(props) => props.top};
   z-index: 1;
-`;
-export const TreeImg2 = styled.img`
-  position: absolute;
-  top: 170vh;
-  right: -400px;
-  width: 700px;
-  object-fit: cover;
-  z-index: 1;
-`;
-
-export const TreeBranch1 = styled.img`
-  position: absolute;
-  top: 340vh;
-  left: -50px;
-  z-index: 3;
-  object-fit: cover;
-  width: 300px;
-`;
-
-export const TreeBranch2 = styled.img`
-  position: absolute;
-  top: 440vh;
-  right: -50px;
-  z-index: 3;
-  object-fit: cover;
-  width: 400px;
+  transform: translateZ(2px) scale(0.9);
+  max-height: 30vh;
+  @media (max-width: 480px) {
+    transform: translateZ(2px) scale(0.9) translateY(-50px);
+  }
 `;

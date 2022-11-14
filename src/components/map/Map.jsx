@@ -9,6 +9,9 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 480px) {
+    height: 70vh;
+  }
 `;
 const Wrapper = styled.div`
   width: 80vw;
@@ -16,12 +19,13 @@ const Wrapper = styled.div`
   margin: 20px 0%;
   @media (max-width: 480px) {
     width: 100%;
+    height: 60vh;
   }
 `;
 
-function Map() {
+const Map = React.forwardRef((props, ref) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Wrapper>
         <iframe
           style={{ width: "inherit", height: "inherit" }}
@@ -35,6 +39,6 @@ function Map() {
       </Wrapper>
     </Container>
   );
-}
+});
 
 export default Map;

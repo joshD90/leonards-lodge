@@ -5,9 +5,9 @@ import lane from "../../assets/lane_1.jpg";
 import bedroom from "../../assets/interior_bedroom_5.jpeg";
 import { Container } from "./HighlightStyles";
 
-function Highlights() {
+const Highlights = React.forwardRef((props, ref) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <HighlightItem
         rotated="-3deg"
         caption="Rustic Comfort"
@@ -28,6 +28,6 @@ function Highlights() {
       />
     </Container>
   );
-}
+});
 
 export default Highlights;

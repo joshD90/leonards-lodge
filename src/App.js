@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Navbar from "./components/navbar/Navbar";
 import ParallaxContainer from "./components/parallaxContainer/ParallaxContainer";
 
 function App() {

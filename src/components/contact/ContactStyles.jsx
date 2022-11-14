@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colorScheme as colors } from "../../css variables/colorsScheme";
 
 export const Container = styled.div`
+  position: relative;
   height: 150px;
   background-color: ${colors.mid};
   width: 100%;
@@ -10,6 +11,7 @@ export const Container = styled.div`
   justify-content: center;
   margin-top: ${(props) => props.marginTop};
   flex-wrap: wrap;
+  z-index: 2;
   @media (max-width: 850px) {
   }
   @media (max-width: 480px) {

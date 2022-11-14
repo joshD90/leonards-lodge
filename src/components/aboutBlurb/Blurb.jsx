@@ -28,10 +28,10 @@ const Blurb = React.forwardRef((props, ref) => {
     const observer = new IntersectionObserver(doIntersect, options);
     //this is the div that we put the observer on and we position this div at the necessary height so that
     //the text only becomes visible / invisible once under the photo
-    bottomRef && observer.observe(bottomRef.current);
+    observer.observe(bottomRef.current);
     //we need to return an unobserve so that the event listeners don't build on top of each other
     return () => bottomRef && observer.unobserve(bottomRef.current);
-  });
+  }, [bottomRef]);
 
   return (
     <Container ref={ref}>
