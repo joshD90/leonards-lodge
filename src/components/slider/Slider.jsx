@@ -7,14 +7,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-function Slider() {
+const Slider = React.forwardRef((props, ref) => {
   return (
-    <Container>
+    <Container ref={ref}>
       <Wrapper>
         <Swiper />
       </Wrapper>
     </Container>
   );
-}
+});
 
 export default Slider;

@@ -38,9 +38,16 @@ function ParallaxContainer() {
   const blurbRef = React.createRef();
   const highlightRef = React.createRef();
   const rockRef = useRef();
+  const homeRef = useRef();
+  const galleryRef = React.createRef();
+  const mapRef = React.createRef();
+  const contactRef = React.createRef();
+
   const [blurbY, setBlurbY] = useState();
   const [highlightY, setHighlightY] = useState();
   const [rockY, setRockY] = useState();
+  const [scrollTop, setScrollTop] = useState(0);
+  const [navOpacity, setNavOpacity] = useState(0.8);
 
   //set up use effect to get the y coordinate
   useEffect(() => {
@@ -54,19 +61,47 @@ function ParallaxContainer() {
     return () => window.removeEventListener("resize", checkYPos);
   }, [blurbRef, highlightRef, rockRef]);
 
+  useEffect(() => {
+    const scrollTimer = setTimeout(() => setNavOpacity(0.9), 1000);
+    return () => {
+      clearTimeout(scrollTimer);
+    };
+  }, [scrollTop]);
+
+  const doScroll = (e) => {
+    if (e.target.scrollTop > scrollTop) setNavOpacity(0.2);
+    if (e.target.scrollTop < scrollTop) setNavOpacity(0.9);
+    setScrollTop(e.target.scrollTop);
+  };
+
+  const scrollTo = (id) => {
+    if (id === "home")
+      return homeRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "about")
+      return blurbRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "highlight")
+      return highlightRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "gallery")
+      return galleryRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "map")
+      return mapRef.current.scrollIntoView({ behavior: "smooth" });
+    if (id === "contact")
+      return contactRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <Container>
-      <Navbar />
+    <Container onScroll={doScroll}>
+      <Navbar opacity={navOpacity} scrollTo={scrollTo} />
       {/* This Section Covers the Banner */}
       <LodgeImg src={lodgeImg} />
       <LodgeLogo>Escape To Tranquility</LodgeLogo>
       <Grass src={grass} />
       {/* As the Banner is position absolute, a div behind it keeps the flow of the website */}
-      <ViewHeightDiv>
+      <ViewHeightDiv ref={homeRef}>
         <LodgeName>Hazelrock Lodge</LodgeName>
       </ViewHeightDiv>
       {/* Contact Flag */}
-      <Contact marginTop="0px" />
+      <Contact marginTop="0px" ref={contactRef} />
       {/* Blurb about the Lodge */}
       <Blurb ref={blurbRef} />
       <PlantOverlay
@@ -98,10 +133,10 @@ function ParallaxContainer() {
       />
 
       {/* Carousel to Display the Lodge */}
-      <Slider />
+      <Slider ref={galleryRef} />
       {/* Carousel to Display the Feedback */}
       <Testimonials />
-      <Map />
+      <Map ref={mapRef} />
       <RockSpace ref={rockRef} style={{ zIndex: -2 }} />
       <Rocks src={rocks} top={`${rockY}px`} style={{ zIndex: 0 }} />
       <Contact marginTop="0" style={{ zIndex: 2 }} />

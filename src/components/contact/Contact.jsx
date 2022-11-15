@@ -1,13 +1,13 @@
 import React from "react";
 import { Container, Header, Button } from "./ContactStyles";
 
-function Contact({ marginTop }) {
+const Contact = React.forwardRef(({ marginTop }, ref) => {
   return (
-    <Container marginTop={marginTop}>
+    <Container marginTop={marginTop} ref={ref}>
       <Header>You Can Ring Us Directly For Bookings</Header>
       <Button>0851234567</Button>
     </Container>
   );
-}
+});
 
 export default Contact;
